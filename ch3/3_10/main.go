@@ -7,26 +7,25 @@ import(
 
 func comma(s string) string {
 	var buf bytes.Buffer
-
   i := 0
-  leadingDigits := len(s) % 3
-  if leadingDigits != 0 {
-    buf.Write([]byte(s[:leadingDigits]))
+
+  leading := len(s) % 3
+
+  if leading != 0 {
+    buf.Write([]byte(s[:leading]))
     buf.WriteByte(',')
-    i += leadingDigits
+    i += leading
   }
 
   for range s {
-    remaining := len(s[i:])
-
-    if remaining < 3 {
-      buf.Write([]byte(s[i:]))
+    if i == len(s) {
       break
     }
 
-    if i > 2 { 
+    if i > 2 {
       buf.WriteByte(',')
     }
+
     buf.Write([]byte(s[i:i+3]))
     i += 3
   }
