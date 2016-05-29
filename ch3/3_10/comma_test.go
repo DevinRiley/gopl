@@ -62,11 +62,3 @@ func TestLong(t *testing.T) {
 		t.Fail()
 	}
 }
-
-//func main() {
-//	nums := []string{"123", "1234", "12345", "123456", "1234567"}
-//	for _, str := range nums {
-//		res := comma(str)
-//		fmt.Printf("with commas: %s\n", res)
-//	}
-//}
